@@ -18,6 +18,13 @@ int GetNumber(string msg)
         }
     }
 }
+string GetSign(int number)
+{
+    if (Math.Sign(number) < 0)
+        return "-";
+    else
+        return "+";    
+}   
 void FindIntersection(int k1, int b1, int k2, int b2)
 {
     
@@ -27,7 +34,7 @@ void FindIntersection(int k1, int b1, int k2, int b2)
     {
         int x = (b2-b1)/(k1-k2);
         int y = (b1*k2-b2*k1)/(k2-k1);
-        Console.WriteLine($"Точка пересечения прямых y=({k1})x+({b1}) и y=({k2})x+({b2}): ({x},{y})");
+        Console.WriteLine($"Точка пересечения прямых y={k1}x{GetSign(b1)}{Math.Abs(b1)} и y={k2}x{GetSign(b2)}{Math.Abs(b2)}: ({x},{y})");
     }
     
 }
